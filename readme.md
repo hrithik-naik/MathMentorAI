@@ -18,7 +18,22 @@
 
 ## 🧱 Architecture
 
-Powered by LangGraph's agent framework:
+### Powered by LangGraph's agent framework:
+
 ![workflow](workflow.png)
+
+## **🧰 Technologies Used**
+
+* **🧠 LangGraph:** Multi-agent workflow
+* **🌐 LangChain**
+* **🔎 FAISS:** Semantic retrieval
+* **🤖 Gemini:** Google Generative AI
+* **📄 PyMuPDF:** For better PDF parsing
+* **🔍 SerpAPI:** Live Google search results
+* **🧼 Custom cleaning agent:** For OCR/noise removal
+* **🌐 Streamlit:** For the web frontend
+
+## 📸 UI Preview
+
 
 
