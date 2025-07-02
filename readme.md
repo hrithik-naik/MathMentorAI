@@ -19,5 +19,6 @@
 ## 🧱 Architecture
 
 Powered by LangGraph's agent framework:
+![workflow](workflow.png)
 
 
