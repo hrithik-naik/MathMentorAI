@@ -35,5 +35,7 @@
 
 ## 📸 UI Preview
 
+![workflow](sampleoutput.png)
+
 
 
