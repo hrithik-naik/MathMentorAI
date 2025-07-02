@@ -33,7 +33,7 @@
 * **🧼 Custom cleaning agent:** For OCR/noise removal
 * **🌐 Streamlit:** For the web frontend
 
-**📘 Knowledge Base**
+## **📘 Knowledge Base**
 
 The knowledge base is built using math textbooks from CBSE Classes 10, 11, and 12, covering:
 
@@ -51,7 +51,7 @@ The textbooks were processed using:
 * ✅ Text chunking with overlap for mathematical continuity
 * ✅ Embedding and indexing using SentenceTransformers + FAISS
 
-**💬 How it Works**
+## **💬 How it Works**
 
 1.  User enters a query via the Streamlit chat interface.
 2.  Query is passed to LangGraph for node-based processing.
@@ -65,6 +65,46 @@ The textbooks were processed using:
 ## 📸 UI Preview
 
 ![workflow](sampleoutput.png)
+
+## 📊 Benchmark Results (JEE Physics/Math MCQ)
+
+The system was evaluated on a small set of **5 JEE-style multiple-choice questions** from a custom dataset:
+
+| Metric                    | Value      |
+|--------------------------|------------|
+| Dataset File             | `dataset.json` |
+| Total Problems           | 5          |
+| Successful Runs          | 5 (100%)   |
+| Correct Answers          | 1          |
+| **Overall Accuracy**     | **20%**    |
+| Success Rate             | 100%       |
+| Error Rate               | 0%         |
+
+### 📌 Question Type Breakdown
+
+| Type             | Count | Correct | Accuracy |
+|------------------|-------|---------|----------|
+| MCQ (Single)     | 2     | 1       | 50%      |
+| MCQ (Multiple)   | 3     | 0       | 0%       |
+
+> ⚠️ **Note:** Due to API limitations (SerpAPI quota exhaustion), only **5 questions** were processed during this run. A larger benchmark will be conducted once the quota resets to get a more representative evaluation.
+
+## ✅ Conclusion
+
+**MathMentorAI** is a hybrid agentic-RAG system that intelligently handles math-focused student queries by leveraging:
+
+- Semantic classification (to detect math vs. non-math intent)
+- Vector-based knowledge retrieval from CBSE class 10–12 math textbooks
+- Web fallback (via SerpAPI) when no relevant material is found in the internal knowledge base
+- Step-by-step solution generation using a Gemini-powered tutor agent
+- Human-in-the-loop feedback logging for continuous improvement
+
+Despite a limited benchmark run (due to API rate limits), the system demonstrated strong architectural reliability, completing all queries successfully. With future improvements in knowledge coverage, web parsing, and multi-agent coordination, **MathMentorAI** can evolve into a production-ready educational assistant capable of supporting math learners at scale.
+
+---
+
+> 🔧 Next steps include improving retrieval coverage, expanding the dataset size for benchmarking, and integrating DSPy for feedback-based agent refinement.
+
 
 
 
