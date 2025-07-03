@@ -6,6 +6,7 @@ from langgraph.graph import StateGraph, END
 from langchain_google_genai import ChatGoogleGenerativeAI
 from testingguardrail import querying
 from kbhelper import is_out_of_knowledge_base
+from dspyrag.ver5 import ask_question,provide_feedback
 
 
 load_dotenv()
@@ -29,7 +30,6 @@ class ChatState(BaseModel):
     is_present_in_kb:bool=False
     relevntdoc: str = ""
     web_search_results: str = ""
-    feedback: Optional[str] = None 
     
 
 
@@ -82,13 +82,10 @@ def handlemathquery(state: ChatState) -> ChatState:
     is_outside_kb, docs,score = is_out_of_knowledge_base(state.input)
     print(is_outside_kb)
     
-    retrieved_snippets = "\n\n".join([
-    f"Doc {i+1}:\n{doc.page_content}"
-    for i, doc in enumerate(docs)
-])
+    retrieved_snippets = ""
     if (is_outside_kb):
-        state.relevntdoc=retrieved_snippets
-        print(retrieved_snippets)
+        state.relevntdoc=ask_question(question=state.input)
+        print(state.relevntdoc)
    
     
     return ChatState(
@@ -240,11 +237,12 @@ Return only the cleaned, final answer.
         input=state.input,
         output=llmresponse,
         counter=state.counter + 1,
-        )
-def feedback_collector(state: ChatState) -> ChatState:
-    return state
+        )    
+def positive():
+    provide_feedback(True)
+def Negative():
+    provide_feedback(False)
 
-    
 
 
 
@@ -255,8 +253,6 @@ graph_builder.add_node("handle_non_math_query", notmathquery)
 graph_builder.add_node("Retrievalagent",Retrievalagent)
 graph_builder.add_node("webRetrieval",webRetrievalagent)
 graph_builder.add_node("SolutionGenerator",solutionGenerator)
-graph_builder.add_node("FeedbackCollector", feedback_collector)
-
 
 graph_builder.set_entry_point("classify_math_query")
 
@@ -271,8 +267,7 @@ graph_builder.add_edge("Retrievalagent","SolutionGenerator")
 
 graph_builder.add_edge("webRetrieval","SolutionGenerator")
 
-graph_builder.add_edge("SolutionGenerator", "FeedbackCollector")
-graph_builder.add_edge("FeedbackCollector", END)
+graph_builder.add_edge("SolutionGenerator",END)
 
 
 graph = graph_builder.compile()

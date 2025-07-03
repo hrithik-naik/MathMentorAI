@@ -1,5 +1,5 @@
 import streamlit as st
-from graph_agent import graph, ChatState
+from graph_agent import graph, ChatState,positive,Negative
 
 st.set_page_config(page_title="Gemini Chatbot", layout="centered")
 st.title("🤖 MathMentorAI (Lang Graph )")
@@ -65,9 +65,16 @@ if user_input := st.chat_input("Type your question..."):
 
     # ✍️ Human-in-the-loop feedback input
     with st.expander("💡 Provide feedback on this response"):
-        feedback_text = st.text_area("Your feedback", key=f"feedback_{len(st.session_state.chat_history)}")
-        if st.button("Submit Feedback"):
-            st.success("✅ Feedback submitted!")
-            # Save feedback log
+        col1, col2 = st.columns(2)
+    with col1:
+        if st.button("👍 Upvote", key=f"up_{len(st.session_state.chat_history)}"):
+            positive()
+            st.success("✅ Feedback submitted: Upvoted")
             with open("feedback_log.txt", "a", encoding="utf-8") as f:
-                f.write(f"Q: {user_input}\nA: {ai_response}\nFeedback: {feedback_text}\n{'='*80}\n")
+                f.write(f"Q: {user_input}\nA: {ai_response}\nFeedback: Upvoted\n{'='*80}\n")
+    with col2:
+        if st.button("👎 Downvote", key=f"down_{len(st.session_state.chat_history)}"):
+            Negative()
+            st.success("✅ Feedback submitted: Downvoted")
+            with open("feedback_log.txt", "a", encoding="utf-8") as f:
+                f.write(f"Q: {user_input}\nA: {ai_response}\nFeedback: Downvoted\n{'='*80}\n")
