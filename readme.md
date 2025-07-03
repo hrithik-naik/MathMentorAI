@@ -4,39 +4,43 @@
 
 ---
 
-
----
-
 ## 🚀 Features
 
-* **Math Query Classification (LLM + Embedding-based):** Classifies mathematical queries using a combination of Large Language Models (LLMs) and embedding techniques.
-* **In-Knowledge-Base Retrieval using FAISS:** Retrieves relevant information from an internal knowledge base using the FAISS vector store.
-* **Web Search Fallback via SerpAPI:** If information isn't found in the knowledge base, it falls back to a web search using SerpAPI.
-* **Step-by-Step Math Solution Generation:** Generates detailed, step-by-step solutions for mathematical problems.
-* **Chunk Cleaning Agent for OCR & structure correction:** Employs an agent to clean and correct chunks of text, especially useful for OCR errors and structural inconsistencies.
-* **Human-in-the-Loop Feedback Capture (Upvote/Downvote):** Allows users to provide feedback on the quality of solutions through upvote/downvote mechanisms.
-* **DSPy-powered RAG Pipeline for answer synthesis:** Utilizes a DSPy-powered Retrieval-Augmented Generation (RAG) pipeline for synthesizing comprehensive answers.
-* **Streamlit UI for interaction and feedback:** Provides a user-friendly chat interface built with Streamlit for interaction and feedback collection.
+* 🔎 **Math Query Classification** (LLM + Embedding-based)
+* 📚 **In-Knowledge-Base Retrieval** using FAISS
+* 🌐 **Web Search Fallback** via SerpAPI
+* 🧠 **Step-by-Step Math Solution Generation**
+* 🧼 **Chunk Cleaning Agent** for OCR & structure correction
+* 🗣️ **Human-in-the-Loop Feedback Capture** (Upvote/Downvote)
+* 🧩 **DSPy-powered RAG Pipeline** for answer synthesis
+* 🎛️ **Streamlit UI** for interaction and feedback
 
 ---
+
 ## 🧱 Architecture
 
-### Powered by LangGraph's agent framework:
+### Powered by LangGraph's agent framework with DSPy-enhanced RAG:
 
 ![workflow](workflow1.png)
 
-## 🧰 Technologies Used
+---
 
-* **LangGraph:** Used for orchestrating multi-agent workflows.
-* **DSPy:** Powers modular LLM programs for RAG and response generation.
-* **LangChain:** Employed for embeddings and retrieval logic.
-* **FAISS:** Serves as the semantic vector store for fast and efficient retrieval.
-* **Gemini:** Leverages Google Generative AI (specifically Gemini 2.0 Flash).
-* **PyMuPDF:** Utilized for robust PDF parsing.
-* **SerpAPI:** Provides real-time web search capabilities.
-* **Cleaning Agent:** Dedicated agent for OCR and structure correction for PDFs.
-* **Human-in-the-Loop Feedback:** Implements a vote-based system for quality control.
-* **Streamlit:** Used for developing the chat interface and collecting user feedback.
+## **🧰 Technologies Used**
+
+* **🧠 LangGraph:** Multi-agent workflow
+* **🔄 DSPy:** Modular LLM programs for RAG and response generation
+* **🌐 LangChain:** For embeddings and retrieval logic
+* **🔎 FAISS:** Semantic vector store for fast retrieval
+* **🤖 Gemini:** Google Generative AI (Gemini 2.0 Flash)
+* **📄 PyMuPDF:** Robust PDF parsing
+* **🔍 SerpAPI:** Real-time web search
+* **🧼 Cleaning Agent:** OCR and structure correction for PDFs
+* **🗣️ Human-in-the-Loop Feedback:** Vote-based quality control
+* **🌐 Streamlit:** Chat interface and feedback collection
+
+---
+
+
 
 ## **📘 Knowledge Base**
 
