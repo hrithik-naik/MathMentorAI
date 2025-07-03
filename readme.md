@@ -20,7 +20,7 @@
 
 ### Powered by LangGraph's agent framework:
 
-![workflow](workflow.png)
+![workflow](workflow1.png)
 
 ## **🧰 Technologies Used**
 
