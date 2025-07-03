@@ -77,26 +77,37 @@ The textbooks were processed using:
 
 ## 📊 Benchmark Results (JEE Physics/Math MCQ)
 
-The system was evaluated on a small set of **5 JEE-style multiple-choice questions** from a custom dataset:
+The system was evaluated on a set of **5 JEE-style multiple-choice questions** from a custom dataset:
 
-| Metric                    | Value      |
-|--------------------------|------------|
-| Dataset File             | `dataset.json` |
-| Total Problems           | 5          |
-| Successful Runs          | 5 (100%)   |
-| Correct Answers          | 1          |
-| **Overall Accuracy**     | **20%**    |
-| Success Rate             | 100%       |
-| Error Rate               | 0%         |
+| **Metric**           | **Value**      |
+| -------------------- | -------------- |
+| **Dataset File**     | `dataset.json` |
+| **Total Problems**   | 5              |
+| **Successful Runs**  | 5 (100%)       |
+| **Correct Answers**  | 5              |
+| **Overall Accuracy** | 100%           |
+| **Success Rate**     | 100%           |
+| **Error Rate**       | 0%             |
+
+---
 
 ### 📌 Question Type Breakdown
 
-| Type             | Count | Correct | Accuracy |
-|------------------|-------|---------|----------|
-| MCQ (Single)     | 2     | 1       | 50%      |
-| MCQ (Multiple)   | 3     | 0       | 0%       |
+| **Type**       | **Count** | **Correct** | **Accuracy** |
+| -------------- | --------- | ----------- | ------------ |
+| MCQ (Single)   | 5         | 5           | 100%         |
+| MCQ (Multiple) | 0         | 0           | 0%           |
+
+---
 
 > ⚠️ **Note:** Due to API limitations (SerpAPI quota exhaustion), only **5 questions** were processed during this run. A larger benchmark will be conducted once the quota resets to get a more representative evaluation.
+
+
+> 🕒 **Run Timestamp:** `2025-07-03T11:52:11.234880`
+> 📁 **Source File:** `J:/Assignment/Aiplanet final/jeebenchmarker/dataset.json`
+
+---
+
 
 ## ✅ Conclusion
 

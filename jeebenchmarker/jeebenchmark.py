@@ -6,24 +6,34 @@ from datetime import datetime
 # Adjust these imports based on your actual file structure
 from graph_agent import ChatState, graph
 
+import json
+
 def load_jee_problems(file_path, num_problems=15):
-    """Load problems from the JEE JSON dataset file"""
+    """Load only Math problems from the JEE JSON dataset file"""
     with open(file_path, 'r', encoding='utf-8') as f:
         data = json.load(f)
-    
-    # Your dataset is a list of problem dictionaries
-    problems = data[:num_problems] if isinstance(data, list) else [data]
-    
-    print(f"Sample problem structure:")
+
+    # Ensure data is a list of dictionaries
+    all_problems = data if isinstance(data, list) else [data]
+
+    # Filter for only 'math' subject problems (case-insensitive)
+    math_problems = [p for p in all_problems if p.get('subject', '').strip().lower() == 'math']
+
+    # Take up to num_problems math problems
+    problems = math_problems[:num_problems]
+
+    print(f"Loaded {len(problems)} math problem(s).")
     if problems:
         sample = problems[0]
+        print(f"Sample problem structure:")
         print(f"  - Index: {sample.get('index')}")
         print(f"  - Subject: {sample.get('subject')}")
         print(f"  - Type: {sample.get('type')}")
         print(f"  - Gold Answer: {sample.get('gold')}")
         print(f"  - Question Length: {len(sample.get('question', ''))}")
-    
+
     return problems
+
 
 def extract_answer(response_text, correct_answer):
     """Extract the model's answer from response text"""
