@@ -108,6 +108,31 @@ The system was evaluated on a set of **5 JEE-style multiple-choice questions** f
 
 ---
 
+The system was evaluated on a set of **53 JEE-style multiple-choice questions** from a custom dataset:
+
+| **Metric**           | **Value**      |
+| -------------------- | -------------- |
+| **Dataset File**     | `dataset.json` |
+| **Total Problems**   | 53             |
+| **Successful Runs**  | 53 (100%)      |
+| **Correct Answers**  | 51             |
+| **Overall Accuracy** | 96.23%         |
+| **Success Rate**     | 100%           |
+| **Error Rate**       | 0%             |
+
+---
+
+### 📌 Question Type Breakdown
+
+| **Type**       | **Count** | **Correct** | **Accuracy** |
+| -------------- | --------- | ----------- | ------------ |
+| MCQ (Single)   | 53        | 51          | 96.23%       |
+| MCQ (Multiple) | 0         | 0           | 0%           |
+
+---
+
+
+
 
 ## ✅ Conclusion
 
